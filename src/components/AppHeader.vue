@@ -15,9 +15,9 @@ export default {
 <template>
     <header>
         <div class="container">
-            <div class="row my-4">
-                <div class="col-2">
-                    <div class="box ">
+            <div class="row my-4 align-items-center ">
+                <div class="col-2 mt-3">
+                    <div class="box">
                         <img src="../../public/800px-Yu-Gi-Oh!_(Logo).jpg" alt="">
                     </div>
                 </div>
