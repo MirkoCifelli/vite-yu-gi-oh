@@ -1,26 +1,30 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import AppFooter from './components/AppFooter.vue';
+// import AppFooter from './components/AppFooter.vue';
 import axios from 'axios';
+import { store } from './store.js';
 
 export default {
     data() {
         return {
-
+            baseUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+            store
         };
     },
     components: {
         AppHeader,
         AppMain,
-        AppFooter
+        // AppFooter
     },  
     methods: {
 
     },
     mounted(){
-        axios.get('').then((response)=>{
+        axios.get(this.baseUrl).then((response)=>{
             console.log(response)
+            this.store.cards= response.data.data;
+            console.log(this.cards)
         });
     }
 }
@@ -33,7 +37,7 @@ export default {
 
     <AppMain />
 
-    <AppFooter />
+    <!-- <AppFooter /> -->
 </template>
 
 <style lang="scss">
