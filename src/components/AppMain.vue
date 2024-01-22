@@ -33,10 +33,10 @@ export default {
                     </select>
                 </div>
                 <div class="col-12 bg-dark text-light">
-                    Found x Card
+                    Found {{store.cards.length}} Card
                 </div>
             </div>
-            <div class="row mt-2 ">
+            <div class="row mt-2 justify-content-center ">
                 <div class="col-2 bg-warning m-2 " v-for="(elem,i) in store.cards" :key="i">
                     <SingleCard  :card="elem"/>
                     <!-- <SingleCard v-for="(elem,i) in store.cards" :key="i"/> -->
