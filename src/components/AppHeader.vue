@@ -8,6 +8,7 @@ export default {
     methods: {
 
     }
+    
 }
 </script>
 
@@ -15,13 +16,13 @@ export default {
     <header>
         <div class="container">
             <div class="row my-4">
-                <div class="col">
-                    <div>
-                        logo
+                <div class="col-2">
+                    <div class="box ">
+                        <img src="../../public/800px-Yu-Gi-Oh!_(Logo).jpg" alt="">
                     </div>
                 </div>
                 <div class="col-10">
-                    <div class="">
+                    <div>
                         <h1>
                             Yu-Gi-Oh API
                         </h1>
@@ -33,4 +34,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.box{
+    width: 100px;
+    height: 50px;
+    img{
+        width: 100%;
+    }
+}
+
 </style>

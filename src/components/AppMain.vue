@@ -1,15 +1,23 @@
 <script>
+import SingleCard from './SingleCard.vue';
+import { store } from '../store';
 export default {
     data() {
         return {
-
+            store
         };
     },
-    methods: {
 
+    components: {
+        SingleCard
     },
+    mounted(){
+        console.log('sottoooo', this.store.cards)
+    }
 
 }
+// console.log(" quiiiii", store)
+// console.log('qui due', store.cards[0].name)
 </script>
 
 <template>
@@ -25,12 +33,13 @@ export default {
                     </select>
                 </div>
                 <div class="col-12 bg-dark text-light">
-                    Found X Card
+                    Found x Card
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
-                    
+            <div class="row mt-2 ">
+                <div class="col-2 bg-warning m-2 " v-for="(elem,i) in store.cards" :key="i">
+                    <SingleCard  :card="elem"/>
+                    <!-- <SingleCard v-for="(elem,i) in store.cards" :key="i"/> -->
                 </div>
             </div>
         </div>
