@@ -12,15 +12,11 @@ export default {
         SingleCard
     },
     methods :{
-        OjectArcType(x){
-            this.store.archImput = x
-        }
+        
     }
    
 
 }
-// console.log(" quiiiii", store)
-// console.log('qui due', store.cards[0].name)
 </script>
 
 <template>
@@ -30,10 +26,10 @@ export default {
                 <div class="col-auto mb-2 ">
                     <select 
                         v-model="store.archImput"
-                        @click="$emit('qualcosa')"
+                        @change="$emit('qualcosa')"
                         class="form-select" aria-label="Default select example">
                         <option 
-                        @click="OjectArcType(value)"
+                        
                         v-for="(arc,i) in store.archArray" :key="i"
                         :value="arc.archetype_name"
                         >

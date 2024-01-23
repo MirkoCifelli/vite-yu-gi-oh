@@ -18,23 +18,32 @@ export default {
         // AppFooter
     },  
     methods: {
-        createCard(){
+        createCardParams(){
             axios.get(this.store.baseUrl,{
                 params:{
                     archetype: this.store.archImput
                 }
             }).then((response)=>{
-            // console.log(response)
+            
             this.store.cards = response.data.data;
-            // console.log( 'sopra', this.store.cards)
-        });
+            
+        })
+        },
+        createCard(){
+            axios.get(this.store.baseUrl)
+            .then((response)=>{
+            
+            this.store.cards = response.data.data;
+            
+        })
         },
         arcCard(){
+            
             axios.get(this.store.archUrl).then((response)=>{
           
             this.store.archArray = response.data;
            
-        });
+        })
         }
     },
     created(){
@@ -49,7 +58,7 @@ export default {
 
     <AppHeader />
 
-    <AppMain @qualcosa="createCard()"/>
+    <AppMain @qualcosa="createCardParams"/>
 
     <!-- <AppFooter /> -->
 </template>
