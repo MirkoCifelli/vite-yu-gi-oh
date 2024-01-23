@@ -19,7 +19,11 @@ export default {
     },  
     methods: {
         createCard(){
-            axios.get(this.store.baseUrl).then((response)=>{
+            axios.get(this.store.baseUrl,{
+                params:{
+                    archetype: this.store.archImput
+                }
+            }).then((response)=>{
             // console.log(response)
             this.store.cards = response.data.data;
             // console.log( 'sopra', this.store.cards)
@@ -45,7 +49,7 @@ export default {
 
     <AppHeader />
 
-    <AppMain />
+    <AppMain @qualcosa="createCard()"/>
 
     <!-- <AppFooter /> -->
 </template>
