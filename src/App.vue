@@ -9,7 +9,6 @@ import { store } from './store';
 export default {
     data() {
         return {
-            baseUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
             store
         };
     },
@@ -19,14 +18,24 @@ export default {
         // AppFooter
     },  
     methods: {
-
+        createCard(){
+            axios.get(this.store.baseUrl).then((response)=>{
+            // console.log(response)
+            this.store.cards = response.data.data;
+            // console.log( 'sopra', this.store.cards)
+        });
+        },
+        arcCard(){
+            axios.get(this.store.archUrl).then((response)=>{
+          
+            this.store.archArray = response.data;
+           
+        });
+        }
     },
     created(){
-        axios.get(this.baseUrl).then((response)=>{
-            console.log(response)
-            this.store.cards = response.data.data;
-            console.log( 'sopra', this.store.cards)
-        });
+        this.createCard();
+        this.arcCard();
     }
 }
 </script>
